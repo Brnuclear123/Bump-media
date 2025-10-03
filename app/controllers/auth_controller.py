@@ -17,12 +17,12 @@ def login():
             session['brand_name'] = user['brand']
             
             # Redireciona com base na marca do usuário
-            if user['brand'] == 'Corona':
-                return redirect(url_for('routes.corona'))
-            elif user['brand'] == 'Lacta':
-                return redirect(url_for('routes.lacta'))
-            elif user['brand'] == 'Bauducco':
-                return redirect(url_for('routes.bauducco'))
+            if user['brand'] == 'Brand A':
+                return redirect(url_for('routes.brand_a'))
+            elif user['brand'] == 'Brand B':
+                return redirect(url_for('routes.brand_b'))
+            elif user['brand'] == 'Brand C':
+                return redirect(url_for('routes.brand_c'))
         else:
             error = "Login falhou. Verifique suas credenciais."
     

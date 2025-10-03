@@ -1,13 +1,97 @@
-# Ignorar arquivos contendo chaves API
+# =================================
+# ARQUIVOS DE AMBIENTE E CREDENCIAIS
+# =================================
+.env
+*.env
 env_variables.json
+instance/
+config_local.py
 
-# Ignorar ambientes virtuais
+# =================================
+# PYTHON
+# =================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# =================================
+# AMBIENTES VIRTUAIS
+# =================================
 venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
 
-# Ignorar o executável do ngrok
-ngrok.exe
+# =================================
+# ARQUIVOS GERADOS PELA APLICAÇÃO
+# =================================
+static/slogan_static_*.png
+static/slogan_static_*.gif
+static/brands/*/target/*.mp4
+static/brands/*/target/temp/
+videos-teste/
+*.mp4
+*.avi
+*.mov
 
-# Ignorar arquivos gerados ou de teste
-teste.py
+# =================================
+# LOGS E DADOS TEMPORÁRIOS
+# =================================
+*.log
+logs/
+temp/
+tmp/
+.cache/
+.pytest_cache/
 
-target/
+# =================================
+# EDITORES E IDEs
+# =================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# =================================
+# DADOS SENSÍVEIS
+# =================================
+avaliacoes.json
+backup/
+*.backup
+*.bak
+
+# =================================
+# ARQUIVOS DE SISTEMA
+# =================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

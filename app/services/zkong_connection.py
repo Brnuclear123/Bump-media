@@ -23,23 +23,23 @@ def check_status_code(response):
         print(response.text)
 
 def get_items_frombump(label_id: list=[]):  # Removed content_id parameter
-    url = 'https://esl-eu.zkong.com/lcd/content/list?pageNum=1&pageSize=10'
+    url = 'https://api.example.com/lcd/content/list?pageNum=1&pageSize=10'
     headers = {
-        'authority': 'esl-eu.zkong.com',
+        'authority': 'api.example.com',
         'accept': 'application/json, text/plain, */*',
         'accept-language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
         'authorization': BEARER_TOKEN,
         'content-type': 'application/json;charset=UTF-8',
         'language': 'en',
-        'origin': 'https://esl-eu.zkong.com',
-        'referer': 'https://esl-eu.zkong.com/'
+        'origin': 'https://api.example.com',
+        'referer': 'https://api.example.com/'
     }
 
     data = {
         "width": "",
         "labelIds": label_id,
         "name": "",
-        "merchantId": 1741766483922,  # Updated merchantId
+        "merchantId": 123456789,  # Your merchant ID here
         "storeId": 0
     }
 
@@ -49,15 +49,15 @@ def get_items_frombump(label_id: list=[]):  # Removed content_id parameter
     return response.json()
 
 def upload_item_tobump(file_path:str):
-    url = 'https://esl-eu.zkong.com/lcd/content/uploadVideo?parentId=0&isSystem=false'  # Updated endpoint
+    url = 'https://api.example.com/lcd/content/uploadVideo?parentId=0&isSystem=false'  # External API endpoint
     headers = {
-        'authority': 'esl-eu.zkong.com',
+        'authority': 'api.example.com',
         'accept': 'application/json, text/plain, */*',
         'accept-language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
         'authorization': BEARER_TOKEN,
         'language': 'en',
-        'origin': 'https://esl-eu.zkong.com',
-        'referer': 'https://esl-eu.zkong.com/'
+        'origin': 'https://api.example.com',
+        'referer': 'https://api.example.com/'
     }
 
     mime_type, _ = mimetypes.guess_type(file_path)
@@ -67,15 +67,15 @@ def upload_item_tobump(file_path:str):
     check_status_code(response)
 
 def delete_item_frombump(item_id:int):
-    url = f'https://esl-eu.zkong.com/lcd/content/delete?id={item_id}'
+    url = f'https://api.example.com/lcd/content/delete?id={item_id}'
     headers = {
-        'authority': 'esl-eu.zkong.com',
+        'authority': 'api.example.com',
         'accept': 'application/json, text/plain, */*',
         'accept-language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
         'authorization': BEARER_TOKEN,
         'language': 'en',
-        'origin': 'https://esl-eu.zkong.com',
-        'referer': 'https://esl-eu.zkong.com/'
+        'origin': 'https://api.example.com',
+        'referer': 'https://api.example.com/'
     }
     response = requests.delete(url, headers=headers)
     check_status_code(response)
@@ -84,16 +84,16 @@ def delete_item_frombump(item_id:int):
 
 
 def tag_entity_atbump(item_type:int, item_id:int, tag_id:int):
-    url = 'https://esl-eu.zkong.com/lcd/label/labelEntity'
+    url = 'https://api.example.com/lcd/label/labelEntity'
     headers = {
-        'authority': 'esl-eu.zkong.com',
+        'authority': 'api.example.com',
         'accept': 'application/json, text/plain, */*',
         'accept-language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
         'authorization': BEARER_TOKEN,
         'content-type': 'application/json;charset=UTF-8',
         'language': 'en',
-        'origin': 'https://esl-eu.zkong.com',
-        'referer': 'https://esl-eu.zkong.com/'
+        'origin': 'https://api.example.com',
+        'referer': 'https://api.example.com/'
     }
     data = {
         "type": item_type,
@@ -104,16 +104,16 @@ def tag_entity_atbump(item_type:int, item_id:int, tag_id:int):
     check_status_code(response)
 
 def criar_tag_pai(tag_name:str, tag_pid:int):
-    url = 'https://esl-eu.zkong.com/lcd/label/saveOrUpdate'
+    url = 'https://api.example.com/lcd/label/saveOrUpdate'
     headers = {
-        'authority': 'esl-eu.zkong.com',
+        'authority': 'api.example.com',
         'accept': 'application/json, text/plain, */*',
         'accept-language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
         'authorization': BEARER_TOKEN,
         'content-type': 'application/json;charset=UTF-8',
         'language': 'en',
-        'origin': 'https://esl-eu.zkong.com',
-        'referer': 'https://esl-eu.zkong.com/'
+        'origin': 'https://api.example.com',
+        'referer': 'https://api.example.com/'
     }
     data = {
         "name": tag_name,
@@ -124,15 +124,15 @@ def criar_tag_pai(tag_name:str, tag_pid:int):
     check_status_code(response)
 
 def delete_tag(tag_id:int):
-    url = f'https://esl-eu.zkong.com/lcd/label/delete?id={tag_id}'
+    url = f'https://api.example.com/lcd/label/delete?id={tag_id}'
     headers = {
-        'authority': 'esl-eu.zkong.com',
+        'authority': 'api.example.com',
         'accept': 'application/json, text/plain, */*',
         'accept-language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
         'authorization': BEARER_TOKEN,
         'language': 'en',
-        'origin': 'https://esl-eu.zkong.com',
-        'referer': 'https://esl-eu.zkong.com/'
+        'origin': 'https://api.example.com',
+        'referer': 'https://api.example.com/'
     }
     response = requests.post(url, headers=headers)
     check_status_code(response)
@@ -145,7 +145,7 @@ API CALLS DE PUBLICAÇÃO
 """
 
 def list_campaigns():
-    url = 'https://esl-eu.zkong.com/lcd/publication/list?pageNum=1&pageSize=10'
+    url = 'https://api.example.com/lcd/publication/list?pageNum=1&pageSize=10'
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
@@ -160,7 +160,7 @@ def list_campaigns():
     }
     data = {
         "isDraft": 1,
-        "storeId": 1741922345748,
+        "storeId": 555666777,
         "status": None,
         "auditStatus": None,
         "startDate": "2025-3-8 00:00:00",
@@ -171,7 +171,7 @@ def list_campaigns():
     check_status_code(response)
 
 def create_campaign(name_campaing:str, mp4_id:int, mp4_name:str, mp4_url:str, mp4_thumbnailUrl:str, time_seconds:int):
-    url = 'https://esl-eu.zkong.com/lcd/publication/save'
+    url = 'https://api.example.com/lcd/publication/save'
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
@@ -185,13 +185,13 @@ def create_campaign(name_campaing:str, mp4_id:int, mp4_name:str, mp4_url:str, mp
         'Sec-Fetch-Site': 'same-origin',
     }
     data = {
-        "merchantId": 1741766483922,
-        "agencyId": 1558577702698,
-        "storeId": 1741922345748,
+        "merchantId": 123456789,
+        "agencyId": 987654321,
+        "storeId": 555666777,
         "isDraft": 1,
         "name": name_campaing,
         "audioSettings": [],
-        "defaultStoreList": [{"storeId": 1741922345748, "storeName": "BumpMedia"}],
+        "defaultStoreList": [{"storeId": 555666777, "storeName": "ExampleStore"}],
         "displaySettingVos": [
             {
                 "content": {
@@ -199,8 +199,8 @@ def create_campaign(name_campaing:str, mp4_id:int, mp4_name:str, mp4_url:str, mp
                     "parentId": 0,
                     "contentType": 1,
                     "name": mp4_name,
-                    "agencyId": 1558577702698,
-                    "merchantId": 1741766483922,
+                    "agencyId": 987654321,
+                    "merchantId": 123456789,
                     "storeId": 0,
                     "createdTime": 1741926727000,
                     "updatedTime": 1741926727000,
@@ -225,7 +225,7 @@ def create_campaign(name_campaing:str, mp4_id:int, mp4_name:str, mp4_url:str, mp
         "publicationScope": 1,
         "publicationTargets": [
             {
-                "storeVo": {"storeId": 1741922345748, "storeName": "BumpMedia"},
+                "storeVo": {"storeId": 555666777, "storeName": "ExampleStore"},
                 "targetDetails": []
             }
         ],
@@ -235,7 +235,7 @@ def create_campaign(name_campaing:str, mp4_id:int, mp4_name:str, mp4_url:str, mp
     check_status_code(response)
 
 def update_campaign(campaign_id):
-    url = 'https://esl-eu.zkong.com/lcd/publication/save'
+    url = 'https://api.example.com/lcd/publication/save'
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
@@ -250,13 +250,13 @@ def update_campaign(campaign_id):
     }
     data = {
         "id": campaign_id,
-        "merchantId": 1741766483922,
-        "agencyId": 1558577702698,
-        "storeId": 1741922345748,
+        "merchantId": 123456789,
+        "agencyId": 987654321,
+        "storeId": 555666777,
         "isDraft": 1,
         "name": "teste1diogo",
         "audioSettings": [],
-        "defaultStoreList": [{"storeId": 1741922345748, "storeName": "BumpMedia", "timeZone": None}],
+        "defaultStoreList": [{"storeId": 555666777, "storeName": "ExampleStore", "timeZone": None}],
         "displaySettingVos": [
             {
                 "type": 1,
@@ -266,8 +266,8 @@ def update_campaign(campaign_id):
                     "parentId": 0,
                     "contentType": 1,
                     "name": "slogan_animado2025031401312334.mp4",
-                    "agencyId": 1558577702698,
-                    "merchantId": 1741766483922,
+                    "agencyId": 987654321,
+                    "merchantId": 123456789,
                     "storeId": 0,
                     "createdTime": 1741926803000,
                     "updatedTime": 1741926803000,
@@ -292,8 +292,8 @@ def update_campaign(campaign_id):
         "publicationScope": 1,
         "publicationTargets": [
             {
-                "storeVo": {"storeId": 1741922345748, "storeName": "BumpMedia", "externalStoreId": None, "merchantId": 1741766483922, "timeZone": None},
-                "targetDetails": [{"targetCode": "1741922345748", "detail": None}]
+                "storeVo": {"storeId": 555666777, "storeName": "ExampleStore", "externalStoreId": None, "merchantId": 123456789, "timeZone": None},
+                "targetDetails": [{"targetCode": "555666777", "detail": None}]
             }
         ],
         "playTimeRule": {
@@ -307,7 +307,7 @@ def update_campaign(campaign_id):
     check_status_code(response)
 
 def delete_campaign(campaign_id):
-    url = 'https://esl-eu.zkong.com/lcd/publication/batchDelete'
+    url = 'https://api.example.com/lcd/publication/batchDelete'
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',
@@ -325,7 +325,7 @@ def delete_campaign(campaign_id):
     check_status_code(response)
 
 def delete_multiple_campaigns(campaign_ids):
-    url = 'https://esl-eu.zkong.com/lcd/publication/batchDelete'
+    url = 'https://api.example.com/lcd/publication/batchDelete'
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7',

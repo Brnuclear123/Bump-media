@@ -10,7 +10,7 @@ conf_json_path = "static/data/env_variables.json"
 env_data = js_read(conf_json_path)
 openai.api_key = env_data["OPENAI_API_KEY"]
 
-def gerar_slogans_lacta(estado, cidade, bairro, data_campanha, momento=[], real_time_data=[], dia_semana=[], usar_feriado=None):
+def gerar_slogans_brand_c(estado, cidade, bairro, data_campanha, momento=[], real_time_data=[], dia_semana=[], usar_feriado=None):
     regex_patterns = [
         r'(.+?)\\s{2,}',
         r'\"([^\"]+)\",?',
@@ -20,7 +20,7 @@ def gerar_slogans_lacta(estado, cidade, bairro, data_campanha, momento=[], real_
     ]
 
     prompt = (f"""
-        Você é uma inteligência criativa especializada em redigir mensagens curtas, impactantes e sensoriais para a marca de chocolate Lacta no Brasil. Quando referir-se à marca Lacta, faça sempre no feminino. 
+        Você é uma inteligência criativa especializada em redigir mensagens curtas, impactantes e sensoriais para a marca de pães Bauducco no Brasil. Quando referir-se à marca Bauducco, faça sempre no feminino. 
 
         Sua tarefa:
         → Crie 4 variações de títulos publicitários para exibição em telas digitais no ponto de venda.
@@ -28,29 +28,29 @@ def gerar_slogans_lacta(estado, cidade, bairro, data_campanha, momento=[], real_
         → Não enumere, não use aspas e evite pontuação desnecessária.
 
         Diretrizes de estilo:
-        → Mensagens leves, inspiradoras, emocionais.
-        → Evocar sempre sentimentos.
-        → Lacta é sobre conexão, sentimento, emoção e o quanto um chocolate pode representar tudo isso.
+        → Mensagens acolhedoras, envolventes, calorosas e próxima.
+        → Evocar sempre as relações familiares e os afetos que envolvem essas relações.
+        → Bauducco é sobre conexão, tradição, simplicidade, sabores, cuidado, celebração e o quanto seus produtos simbolizam e estimulam as pessoas a viverem momentos juntas.
         → Público-alvo: pessoas de 18 a 55 anos, emocionalmente conectadas com a família, os amigos, e parceiros de vida.
         → Sem emojis. 
         → Crie mensagens espontâneas, com induzam de forma sutil ao impulso de compra e sugestionem o consumidor a relaxar com uma Corona gelada 
         → Evite iniciar as mensagens com numeração, como "1." ou "2.". Mesmo que a ideia seja boa, como em "1. UMA NOITE COM CORONA E PÉS NA AREIA", o número transmite uma sensação de instrução ou passo a passo — o que contradiz o espírito leve, livre e fluido da marca Corona. Também evite iniciar frases com traços ("-"), pois isso reforça a sensação de que a mensagem faz parte de uma lista. Com Corona, cada frase deve parecer um convite espontâneo a viver o momento, não um item a ser lido em sequência.
 
         Instruções específicas:
-        - Adapte a intenção do título conforme o dia da semana, cite o dia só quando for conveniente:
+        - Adapte a intenção do título conforme o dia da semana, cite o dia só quando for conveniente
         - Quando o momento do dia for escolhido, adapte a intenção da mensagem também:
-            De manhã, fale sobre como um "bom dia" fica mais gostoso com chocolate;
-            De tarde, explore o fato de que um chocolate deixa qualquer tarde e relação mais doce;
-            De noite, diga que boas companhias e chocolate sempre fazem um jantar maravilhoso.
-        - Quando selecionado o Dia do Chocolate, em 07/07, aproveite para valorizar na mensagem o contexto de que o dia do chocolate também é dia de demonstrar carinho e emoções por quem se gosta. 
+            De manhã, fale sobre como um "bom dia" fica mais gostoso quando inicia com um pão saboroso de verdade;
+            De tarde, explore o fato de que qualquer dia ou relação fica mais gostosa com Bauducco;
+            De noite, diga que boas companhias e Bauducco sempre fazem um jantar maravilhoso.
         - Não repita o nome da cidade, estado ou bairro nos slogans. Use outros recursos para criar conexão com o local.
-        - Lacta é uma marca leve, calorosa, próxima, acolhedora e inspiradora. Fala de forma simples, direta e sempre buscando criar conexão emocional com o consumidor
+        - Bauducco é uma marca leve, calorosa, próxima, acolhedora e inspiradora. Fala de forma simples, direta e sempre buscando criar conexão emocional com o consumidor
+        - Quando selecionado o Dia do Pão, em 16/10, aproveite para sugerir mensagens que digam que todo dia é dia de comer pão, mas hoje mais ainda.
 
-        Referência conceitual: "Cada pedacinho aproxima"
+        Referência conceitual: "Um sentimento chamado família"
 
         Exemplos de boas saídas:
-        - Sextou com gostinho da melhor companhia. Não disse qual
-        - O melhor pedacinho da segunda é com quem a gente divide ela
+        - Bom dia é começar o dia com um pãozinho de verdade.
+        - Fim de semana tem que ter família e tem que ter Bauducco.
         
         Contexto para inspiração:
                 - Localização: {estado}, {cidade}, {bairro}
@@ -62,6 +62,7 @@ def gerar_slogans_lacta(estado, cidade, bairro, data_campanha, momento=[], real_
     if dia_semana != []:
         prompt = prompt + f"\n                - Dia da semana: {dia_semana}"
 
+    print(prompt)
 
     try:
         response = openai.ChatCompletion.create(
@@ -75,13 +76,13 @@ def gerar_slogans_lacta(estado, cidade, bairro, data_campanha, momento=[], real_
         slogans = extrair_slogans(resposta_texto, regex_patterns)
 
         # Usar o novo gerador de imagens estáticas
-        generator = SloganStaticGenerator("Lacta")
+        generator = SloganStaticGenerator("Brand C")
         imagens = generator.generate_static_images(slogans)
 
         return slogans[:4], imagens
 
     except Exception as e:
-        print("Erro ao gerar slogans Lacta:", e)
+        print("Erro ao gerar slogans Bauducco:", e)
         # TODO: remover for dedebuging
         print("Retornando slogans fictícios para teste")
         
@@ -94,7 +95,7 @@ def gerar_slogans_lacta(estado, cidade, bairro, data_campanha, momento=[], real_
         ]
         
         # Usar o novo gerador de imagens estáticas
-        generator = SloganStaticGenerator("Lacta")
+        generator = SloganStaticGenerator("Brand C")
         imagens = generator.generate_static_images(slogans_ficticios)
             
         return slogans_ficticios, imagens
@@ -126,5 +127,4 @@ def extrair_slogans(resposta_texto, regex_patterns):
 def dia_da_semana(date_str):
     dias = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo']
     date = datetime.strptime(date_str.split("to")[0].strip(), '%d/%m/%Y').date()
-    return dias[date.weekday()]
-
+    return dias[date.weekday()] 

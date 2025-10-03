@@ -2,48 +2,48 @@ import os
 
 class Config:
     # Configurações gerais
-    SECRET_KEY = os.getenv('SECRET_KEY', 'my_secret_key')
+    SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key-here')
     DEBUG = False
-    BEARER_TOKEN = os.getenv('BEARER_TOKEN', 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc4NDUwNTgsInRpbWVzdGFtcCI6MTc0Nzg0MTQ1ODAyN30.7B7ofrJt8d1nvVqt_VvGBxPYih9Ox1S4b9KMaoGaNuI')
+    BEARER_TOKEN = os.getenv('BEARER_TOKEN', 'your-bearer-token-here')
     
     # Configurações por marca
 
     
-    FONT_PATH = {'lacta': 'static/brands/lacta/fonts/CircularStd-Bold.otf', 
-                 'bauducco': 'static/brands/bauducco/fonts/Decoy-Black.otf',
-                 'corona': 'static/brands/corona/fonts/Bison-Bold.ttf'}
+    FONT_PATH = {'brand_b': 'static/brands/brand-b/fonts/CircularStd-Bold.otf', 
+                 'brand_c': 'static/brands/brand-c/fonts/Decoy-Black.otf',
+                 'brand_a': 'static/brands/brand-a/fonts/Bison-Bold.ttf'}
     
-    LOGOS_PATH = {'lacta': 'static/brands/lacta/logos/',
-                 'bauducco': 'static/brands/bauducco/logos/',
-                 'corona': 'static/brands/corona/logos/'}
+    LOGOS_PATH = {'brand_b': 'static/brands/brand-b/logos/',
+                 'brand_c': 'static/brands/brand-c/logos/',
+                 'brand_a': 'static/brands/brand-a/logos/'}
     
-    VIDEOS_PATH = {'lacta': 'static/brands/lacta/videos/',
-                 'bauducco': 'static/brands/bauducco/videos/',
-                 'corona': 'static/brands/corona/videos/'}
+    VIDEOS_PATH = {'brand_b': 'static/brands/brand-b/videos/',
+                 'brand_c': 'static/brands/brand-c/videos/',
+                 'brand_a': 'static/brands/brand-a/videos/'}
     
-    FUNDO_IMAGEM_PATH = {'lacta': 'static/brands/lacta/frames/fundo_lct.jpeg',
-                 'bauducco': 'static/brands/bauducco/frames/fundo_bdc.jpeg',
-                 'corona': 'static/brands/corona/frames/fundo_crn.jpeg'}
+    FUNDO_IMAGEM_PATH = {'brand_b': 'static/brands/brand-b/frames/fundo_lct.jpeg',
+                 'brand_c': 'static/brands/brand-c/frames/fundo_bdc.jpeg',
+                 'brand_a': 'static/brands/brand-a/frames/fundo_crn.jpeg'}
     
-    IMAGEM_FINAL_PATH = {'lacta': 'static/brands/lacta/frames/baseplate_lct.jpeg',
-                 'bauducco': 'static/brands/bauducco/frames/baseplate_bdc.jpeg',
-                 'corona': 'static/brands/corona/frames/baseplate_crn.jpeg'}
+    IMAGEM_FINAL_PATH = {'brand_b': 'static/brands/brand-b/frames/baseplate_lct.jpeg',
+                 'brand_c': 'static/brands/brand-c/frames/baseplate_bdc.jpeg',
+                 'brand_a': 'static/brands/brand-a/frames/baseplate_crn.jpeg'}
 
-    BOTTOM_IMAGEM_PATH = {'lacta': 'static/brands/lacta/bottom/bottom_lct.jpeg',
-                 'bauducco': 'static/brands/bauducco/bottom/bottom_bdc.jpeg',
-                 'corona': 'static/brands/corona/bottom/bottom_crn.png'}
+    BOTTOM_IMAGEM_PATH = {'brand_b': 'static/brands/brand-b/bottom/bottom_lct.jpeg',
+                 'brand_c': 'static/brands/brand-c/bottom/bottom_bdc.jpeg',
+                 'brand_a': 'static/brands/brand-a/bottom/bottom_crn.png'}
     
-    BG_VIDEO_PATH = {'lacta': 'static/brands/lacta/frames/bg_lacta.mp4',
-                 'bauducco': 'static/brands/bauducco/frames/bg_bauducco.mp4',
-                 'corona': 'static/brands/corona/frames/bg_sea.mp4'}
+    BG_VIDEO_PATH = {'brand_b': 'static/brands/brand-b/frames/bg_lacta.mp4',
+                 'brand_c': 'static/brands/brand-c/frames/bg_bauducco.mp4',
+                 'brand_a': 'static/brands/brand-a/frames/bg_sea.mp4'}
     
-    BG_VIDEO_LOGO_PATH = {'lacta': 'static/brands/lacta/frames/bg_lacta_logo.mp4',
-                'bauducco': 'static/brands/bauducco/frames/bg_bauducco_logo.mp4',
-                'corona': 'static/brands/corona/frames/bg_clip_logo.mp4'}
+    BG_VIDEO_LOGO_PATH = {'brand_b': 'static/brands/brand-b/frames/bg_lacta_logo.mp4',
+                'brand_c': 'static/brands/brand-c/frames/bg_bauducco_logo.mp4',
+                'brand_a': 'static/brands/brand-a/frames/bg_clip_logo.mp4'}
     
-    TARGET_PATH = {'lacta': 'static/brands/lacta/target/',
-                'bauducco': 'static/brands/bauducco/target/',
-                'corona': 'static/brands/corona/target/'}
+    TARGET_PATH = {'brand_b': 'static/brands/brand-b/target/',
+                'brand_c': 'static/brands/brand-c/target/',
+                'brand_a': 'static/brands/brand-a/target/'}
 
     # Arquivos compartilhados
     WEATHER_JSON = 'static/data/weather-cd.json'

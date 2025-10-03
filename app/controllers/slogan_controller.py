@@ -1,16 +1,16 @@
 from flask import redirect, url_for, request, session, render_template, jsonify
 from app.services.feriado_service import verificar_feriado
-from app.services.brands.corona import gerar_slogans_corona
-from app.services.brands.lacta import  gerar_slogans_lacta
-from app.services.brands.bauducco import gerar_slogans_bauducco
+from app.services.brands.brand_a import gerar_slogans_brand_a
+from app.services.brands.brand_b import  gerar_slogans_brand_b
+from app.services.brands.brand_c import gerar_slogans_brand_c
 from app.services.slogan_service import gerar_dados_em_tempo_real, carregar_avaliacoes, salvar_avaliacoes, criar_gif_slogan_combinado
 
 from app.services.utils.slogan_static_generator import SloganStaticGenerator
 
 from app.services.feriado_service import verificar_feriado
 
-def corona():
-    if 'username' in session and session['brand_name'].lower() == 'corona':
+def brand_a():
+    if 'username' in session and session['brand_name'].lower() == 'brand_a':
         real_time_data = None
         if request.method == 'POST':
             estado = request.form.get('estado')
@@ -28,26 +28,26 @@ def corona():
             # ✅ Gera dados em tempo real e os slogans
             #real_time_data = gerar_dados_em_tempo_real(estado, cidade, bairro, data_campanha)
             
-            slogans, imagens = gerar_slogans_corona(
+            slogans, imagens = gerar_slogans_brand_a(
                 estado, cidade, bairro, data_campanha, momento, real_time_cards, dia_da_semana, usar_feriado
             )
 
             slogans_imagens = list(zip(slogans, imagens))
 
             return render_template(
-                'corona.html',
+                'brand_a.html',
                 slogans_imagens=slogans_imagens,
                 real_time_date=real_time_data,
                 feriado=feriado
             )
 
-        return render_template('corona.html', feriado=None)
+        return render_template('brand_a.html', feriado=None)
     else:
         return redirect(url_for('routes.login'))
 
 
-def lacta():
-    if 'username' in session and session['brand_name'].lower() == 'lacta':
+def brand_b():
+    if 'username' in session and session['brand_name'].lower() == 'brand_b':
         real_time_data = None
         if request.method == 'POST':
             estado = request.form.get('estado')
@@ -65,29 +65,29 @@ def lacta():
             # ✅ Gera dados em tempo real e os slogans
             #real_time_data = gerar_dados_em_tempo_real(estado, cidade, bairro, data_campanha)
             
-            slogans, imagens = gerar_slogans_lacta(
+            slogans, imagens = gerar_slogans_brand_b(
                 estado, cidade, bairro, data_campanha, momento, real_time_cards, dia_da_semana, usar_feriado
             )
 
             slogans_imagens = list(zip(slogans, imagens))
 
             return render_template(
-                'lacta.html',
+                'brand_b.html',
                 slogans_imagens=slogans_imagens,
                 real_time_date=real_time_data,
                 feriado=feriado
             )
 
         # GET (inicial)
-        return render_template('lacta.html', feriado=None)
+        return render_template('brand_b.html', feriado=None)
     else:
         return redirect(url_for('routes.login'))
 
 
 from app.services.feriado_service import verificar_feriado
 
-def bauducco():
-    if 'username' in session and session['brand_name'].lower() == 'bauducco':
+def brand_c():
+    if 'username' in session and session['brand_name'].lower() == 'brand_c':
         real_time_data = None
         if request.method == 'POST':
             estado = request.form.get('estado')
@@ -105,20 +105,20 @@ def bauducco():
             # ✅ Gera dados em tempo real e os slogans
             #real_time_data = gerar_dados_em_tempo_real(estado, cidade, bairro, data_campanha)
             
-            slogans, imagens = gerar_slogans_bauducco(
+            slogans, imagens = gerar_slogans_brand_c(
                 estado, cidade, bairro, data_campanha, momento, real_time_cards, dia_da_semana, usar_feriado
             )
 
             slogans_imagens = list(zip(slogans, imagens))
 
             return render_template(
-                'bauducco.html',
+                'brand_c.html',
                 slogans_imagens=slogans_imagens,
                 real_time_date=real_time_data,
                 feriado=feriado
             )
 
-        return render_template('bauducco.html', feriado=None)
+        return render_template('brand_c.html', feriado=None)
     else:
         return redirect(url_for('routes.login'))
 
@@ -173,12 +173,12 @@ def avaliados():
     marca = session.get('brand_name', 'anon')
 
     # Passar apenas as avaliações da marca correspondente
-    if marca == 'Corona':
-        avaliacao_usuario = avaliacoes.get('corona', {'like': [], 'dislike': []})
-    elif marca == 'Lacta':
-        avaliacao_usuario = avaliacoes.get('lacta', {'like': [], 'dislike': []})
-    elif marca == 'Bauducco':
-        avaliacao_usuario = avaliacoes.get('bauducco', {'like': [], 'dislike': []})
+    if marca == 'Brand A':
+        avaliacao_usuario = avaliacoes.get('brand_a', {'like': [], 'dislike': []})
+    elif marca == 'Brand B':
+        avaliacao_usuario = avaliacoes.get('brand_b', {'like': [], 'dislike': []})
+    elif marca == 'Brand C':
+        avaliacao_usuario = avaliacoes.get('brand_c', {'like': [], 'dislike': []})
     else:
         avaliacao_usuario = {'like': [], 'dislike': []}
 
