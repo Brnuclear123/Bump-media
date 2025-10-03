@@ -61,8 +61,8 @@ app/
 
 ### 1. Clone o Repositório
 ```bash
-git clone https://github.com/seu-usuario/ai-slogan-generator.git
-cd ai-slogan-generator
+git clone https://github.com/Brnuclear123/Bump-media.git
+cd Bump-media
 ```
 
 ### 2. Crie o Ambiente Virtual
@@ -188,11 +188,20 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 ## 📞 Contato
 
-**Desenvolvedor**: Seu Nome  
-**Email**: seu.email@exemplo.com  
-**LinkedIn**: [seu-perfil](https://linkedin.com/in/seu-perfil)  
-**Portfolio**: [seu-portfolio.com](https://seu-portfolio.com)
+**Desenvolvedor**: Leone Pinto da silva   
+**Email**: leonepinto43@gmail.com / lpssolucoes00@gmail.com 
+**LinkedIn**: linkedin.com/in/leone-silva-447261388 
+**GitHub**: https://github.com/Brnuclear123
 
+## 👥 Contributors
+
+Agradecimento especial para:
+
+- **GitHub** https://github.com/DiogoWorkGit 
+- **LinkedIn** https://www.linkedin.com/in/pereirawork/
+
+- **GitHub** https://github.com/Diogo-Miranda
+- **LinkedIn** linkedin.com/in/diogo-araujom
 ---
 
 ⭐ **Se este projeto foi útil para você, considere dar uma estrela!**
