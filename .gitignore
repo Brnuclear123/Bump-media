@@ -1,0 +1,13 @@
+# Ignorar arquivos contendo chaves API
+env_variables.json
+
+# Ignorar ambientes virtuais
+venv/
+
+# Ignorar o executável do ngrok
+ngrok.exe
+
+# Ignorar arquivos gerados ou de teste
+teste.py
+
+target/
