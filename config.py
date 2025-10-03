@@ -4,9 +4,10 @@ class Config:
     # Configurações gerais
     SECRET_KEY = os.getenv('SECRET_KEY', 'my_secret_key')
     DEBUG = False
-    BEARER_TOKEN = os.getenv('BEARER_TOKEN', 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDYzNDc4NTEsInRpbWVzdGFtcCI6MTc0NjM0NDI1MTk3MX0.rTHAh_re7YDH192qCzFO3tS8vIEHVv8O7LCN5l4ur58')
+    BEARER_TOKEN = os.getenv('BEARER_TOKEN', 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc4NDUwNTgsInRpbWVzdGFtcCI6MTc0Nzg0MTQ1ODAyN30.7B7ofrJt8d1nvVqt_VvGBxPYih9Ox1S4b9KMaoGaNuI')
     
     # Configurações por marca
+
     
     FONT_PATH = {'lacta': 'static/brands/lacta/fonts/CircularStd-Bold.otf', 
                  'bauducco': 'static/brands/bauducco/fonts/Decoy-Black.otf',
